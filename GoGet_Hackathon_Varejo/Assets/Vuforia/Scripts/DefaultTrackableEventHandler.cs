@@ -6,6 +6,7 @@ All Rights Reserved.
 Confidential and Proprietary - Protected under copyright and other laws.
 ==============================================================================*/
 
+using System.Collections;
 using UnityEngine;
 using Vuforia;
 
@@ -17,6 +18,8 @@ using Vuforia;
 /// </summary>
 public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 {
+    public GameObject popUp;
+
     #region PROTECTED_MEMBER_VARIABLES
 
     protected TrackableBehaviour mTrackableBehaviour;
@@ -98,6 +101,14 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         // Enable canvas':
         foreach (var component in canvasComponents)
             component.enabled = true;
+
+        StartCoroutine(SimpleTimer());
+    }
+
+    private IEnumerator SimpleTimer()
+    {
+        yield return new WaitForSeconds(1f);
+        popUp.SetActive(true); ;
     }
 
 
