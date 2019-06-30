@@ -1,8 +1,10 @@
 const express = require("express");
-
+const mongoose = require ("mongoose");
 const server = express();
 
 server.use(express.json());
+
+mongoose.connection = mongodb+srv://goget:goget123@cluster0-ra6ty.mongodb.net/test?retryWrites=true&w=majority
 
 const users = ["Bruno", "Robson", "Ismael"];
 
