@@ -1,0 +1,83 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Refugio.Models
+{
+    public class Organizacao
+    
+        public List<OrganizacaoModel> listaOrganizacao = new List<OrganizacaoModel>();
+
+        public Organizacao()
+        {
+            listaOrganizacao.Add(new OrganizacaoModel
+            {
+                nome = "Jose Carlos",
+                sobrenome = "Macoratti",
+                enderecoOrigem = "Rua Projetada , 100",
+                enderecoAtual = "macoratti@yahoo.com",
+                habilidades = "Construção civil",
+                idioma = "Árabe",
+                dataNascimento = Convert.ToDateTime("05/09/1975")
+            });
+            listaOrganizacao.Add(new OrganizacaoModel
+            {
+                nome = "Jose Carlos",
+                sobrenome = "Macoratti",
+                enderecoOrigem = "Rua Projetada , 100",
+                enderecoAtual = "macoratti@yahoo.com",
+                habilidades = "Construção civil",
+                idioma = "Árabe",
+                dataNascimento = Convert.ToDateTime("05/09/1975")
+            });
+            listaOrganizacao.Add(new OrganizacaoModel
+            {
+                nome = "Jose Carlos",
+                sobrenome = "Macoratti",
+                enderecoOrigem = "Rua Projetada , 100",
+                enderecoAtual = "macoratti@yahoo.com",
+                habilidades = "Construção civil",
+                idioma = "Árabe",
+                dataNascimento = Convert.ToDateTime("05/09/1975")
+            });
+        }
+        public void CriaOrganizacao(OrganizacaoModel OrganizacaoModelo)
+        {
+            listaOrganizacao.Add(OrganizacaoModelo);
+        }
+
+        public void AtualizaOrganizacao(OrganizacaoModel OrganizacaoModelo)
+        {
+            foreach (OrganizacaoModel Organizacao in listaOrganizacao)
+            {
+                    listaOrganizacao.Remove(Organizacao);
+                    listaOrganizacao.Add(OrganizacaoModelo);
+                    break;
+            }
+        }
+        public OrganizacaoModel GetOrganizacao(string Sobrenome)
+        {
+            OrganizacaoModel _OrganizacaoModel = null;
+
+            foreach (OrganizacaoModel _Organizacao in listaOrganizacao)
+                if (_Organizacao.sobrenome == Sobrenome)
+                    _OrganizacaoModel = _Organizacao;
+
+            return _OrganizacaoModel;
+        }
+
+        public void DeletarOrganizacao(String Sobrenome)
+        {
+            foreach (OrganizacaoModel _Organizacao in listaOrganizacao)
+            {
+                if (_Organizacao.sobrenome == Sobrenome)
+                {
+                    listaOrganizacao.Remove(_Organizacao);
+
+                    break;
+                }
+            }
+        }
+    }
+}
